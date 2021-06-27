@@ -1,0 +1,25 @@
+PROGRAM RECUR ;
+
+VAR TEST : INTEGER ;
+
+FUNCTION DIGITS (N:INTEGER):INTEGER ;
+   VAR M:INTEGER ;
+   BEGIN 
+      IF N<10
+      THEN DIGITS := N
+      ELSE BEGIN 
+              M := N DIV 10 ;
+              DIGITS := N - M * 10 + DIGITS(M)
+           END
+   END ;
+ 
+BEGIN
+
+   TEST := 315 ;
+   WRITE (DIGITS(TEST)) ;
+   REPEAT
+      READ (TEST) ;
+      WRITE (DIGITS(TEST))
+   UNTIL TEST = 100
+ 
+END.
